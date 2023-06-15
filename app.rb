@@ -7,6 +7,7 @@ require 'logger'
 class App < Sinatra::Base
   set :erb, escape_html: true
   enable :sessions
+  enable :show_exceptions
 
   attr_reader :logger
 
@@ -16,12 +17,25 @@ class App < Sinatra::Base
   end
 
   def title
-    'Summer Instititue Starter App'
+    'Summer Instititue - Blender'
   end
 
   get '/' do
     logger.info('requsting the index')
     @flash = { info: 'Welcome to Summer Institute!' }
-    erb :index
+    erb(:index)
   end
+
+
+  get '/projects/new' do
+    erb(:new_project)
+  end
+
+  post '/projects/new' do
+    logger.info("Trying to render frames with: #{params.inspect}")
+    @flash = { info: "Trying to render frames with: #{params.inspect}" }
+    erb(:new_project)
+  end
+
 end
+
