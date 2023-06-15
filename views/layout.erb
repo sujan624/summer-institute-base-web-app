@@ -25,14 +25,10 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a href="<%= url("/") %>" class="nav-link">
-            <i class="fas fa-home"></i> <%= title %>
-          </a>
-        </li>
+      
         
         <li class="nav-item active">
-          <a href="#" class="nav-link active" aria-current="page">
+          <a href='<%= url("/home") %>' class="nav-link active" aria-current="page">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
             Home
           </a>
@@ -41,6 +37,11 @@
           <a href= '<%= url("/information") %>'' class="nav-link link-dark">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
             Information
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="<%= url("/") %>" class="nav-link">
+            <i class="fas fa-home"></i> <%= title %>
           </a>
         </li>
       </ul>
