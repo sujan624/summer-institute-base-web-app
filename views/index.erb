@@ -12,9 +12,15 @@
         <a href='<%= url("/projects/#{dir}") %>' class="text-center">
           <i class='fas fa-fw fa-graduation-cap  fa-5x '></i>
           <p><%= dir.gsub('_', ' ').capitalize %><p/>
+            <a href='<%= url("/delete/#{dir}") %>' class="nav-link active" aria-current="page">
+              <svg class="bi me-2" width="3" height="16"><use xlink:href="#home"></use></svg>
+              Delete Project    
+            </a>
         </a>
+        
       </div>
     </li>
+    
     <% end %>
   </ol>
 </div>
