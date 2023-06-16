@@ -5,6 +5,7 @@ IFS=$'\n\t'
 function frames_range() {
   (
     set +u  #
+    
     echo "$FRAMES_RANGE" | perl -pe 's[.+/][]'
   )
 }
