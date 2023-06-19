@@ -13,8 +13,12 @@
           <i class='fas fa-fw fa-graduation-cap  fa-5x '></i>
           <p><%= dir.gsub('_', ' ').capitalize %><p/>
             <a href='<%= url("/delete/#{dir}") %>' class="nav-link active" aria-current="page">
-              <svg class="bi me-2" width="3" height="16"><use xlink:href="#delete"></use></svg>
+              <svg class="bi me-2" width="3" height="8"><use xlink:href="#delete"></use></svg>
               Delete Project    
+            </a>
+            <a href= '<%= url("editicon") %>'' class="nav-link link-dark">
+              <svg class="bi me-2" width="3" height="8"><use xlink:href="#editicon"></use></svg>
+              Edit Icon   
             </a>
         </a>
         
