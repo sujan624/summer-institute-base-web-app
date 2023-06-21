@@ -1,0 +1,25 @@
+<h1><%= @dir %></h1>
+<script src="<%= url("icons.js") %>"type ="application/javascript"></script>Choose an icon! 
+
+<div id="icon_list">
+</div>
+
+<form action = "<%= url("projects/save/#{@dir}") %>" method = "post"
+
+    <div class = "row">
+        <ol class = "list-group list-group-horizontal flex-wrap col-md-12">
+        <%- all_icons.each do |icon| -%>
+        <li class='list-group-item btn btn-outline-dark m-3 border'data_name = "<%= icon %>">
+    <div>
+        <i class='fas fa-fw fa-<%= icon %> fa-5x ' data-name="<%= icon %>"></i>
+    </div>
+</li>
+
+<%- end -%>
+</div>
+
+
+    <button class = "btn btn-primary" type=""submit >
+        Save
+        </button>
+        </form>

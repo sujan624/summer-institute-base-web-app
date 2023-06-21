@@ -63,9 +63,7 @@ get '/delete/:dir' do
   redirect(url("/"))
 end
 
-get '/editicon' do
-  erb(:editicon)
-end
+
 
   
  #!get '/editicon'/:dir' do
@@ -75,6 +73,10 @@ end
   #! post '/save/:dir' do
   #! end
   
+def icon_to_name
+
+end
+
 def all_icons
   [
     'barcode',
@@ -662,6 +664,7 @@ def all_icons
   ]
 end
 
+
   get '/information' do
     erb(:information)
   end
@@ -670,7 +673,16 @@ end
     erb(:home)
   end
 
+  get '/edit/:dir' do
+    @icons = self.all_icons
+    @dir = params[:dir]
+    erb(:edit)
+  end
   
+ 
+   
+  
+
  get '/projects/:dir' do
     if params[:dir] == 'new' || params[:dir] == 'input_files'
       erb :new_project
