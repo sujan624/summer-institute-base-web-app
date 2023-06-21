@@ -2,7 +2,7 @@
 
 require 'sinatra/base'
 require 'logger'
-
+require 'yaml'
 # App is the main application where all your logic & routing will go
 class App < Sinatra::Base
   set :erb, escape_html: true
@@ -31,7 +31,7 @@ class App < Sinatra::Base
   end
 
   def project_dirs
-    Dir.children(projects_root).reject { |dir| dir == 'input_files' }.sort_by(&:to_s)
+    Dir.children(projects_root).reject { |dir| dir == 'input_files' || dir == "icons" }.sort_by(&:to_s)
   end
 
   def input_files_dir
@@ -52,14 +52,14 @@ class App < Sinatra::Base
     @flash = session.delete(:flash) || { info: 'Welcome to Summer Institute!' }
     @project_dirs = project_dirs
     
-
+    @name_icon = YAML.load(File.read("#{projects_root}/icons"))
     erb(:index)
   end
 
 
 get '/delete/:dir' do
   FileUtils.rm_rf("#{projects_root}/#{params[:dir]}")
-  session[:flash] = { info: "sucessfully deleted' #{params[:dir]}'"}
+  session[:flash] = { info: "sucessfully deleted '#{params[:dir]}'"}
   redirect(url("/"))
 end
 
@@ -679,6 +679,14 @@ end
     erb(:edit)
   end
   
+ post '/edit/:dir' do
+  @icon = request.body.read
+  @dir = params[:dir]
+  m =YAML.load(File.read("#{projects_root}/icons"))
+  m[@dir] = @icon
+  File.open("#{projects_root}/icons", "w") {|f| f.write(YAML.dump(m))}
+  session[:flash] = {info: "sucessfully changed '#{params[:dir]}'"}
+ end
  
    
   

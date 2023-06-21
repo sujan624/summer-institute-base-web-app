@@ -4,28 +4,32 @@
 <div id="icon_list">
 </div>
 
-<form action = "<%= url("projects/save/#{@dir}") %>" method = "post"
 
-    <div class = "row">
-        <div class = "col-md-8 icon_list">
-            <div class = "form-group">
-                <label for = "name">Icon</label>
-                <input id = "icon_input" type = "text" name = "icon" class = "form-control" id = "icon" required>
-        </div>
-        
-        <ol class = "list-group list-group-horizontal flex-wrap col-md-12">
-          <%- all_icons.each do |icon| -%>
-          <li class='list-group-item btn btn-outline-dark m-3 border'data_name = "<%= icon %>">
-       <div>
-        <i class='fas fa-fw fa-<%= icon %> fa-5x ' data-name="<%= icon %>"></i>
-    </div>
-</li>
-
-<%- end -%>
-</div>
-
-
-<button class = "btn btn-primary" type=""submit >
+<div class="row">
+    <button onclick = "Save()"class="btn btn-primary" type=""submit >
     Save
 </button>
+</div>
+
+    <div class="row">
+        <div class="col-md-8 icon_list">
+            <div class="form-group">
+                <label for="name">Icon</label>
+                <input id="icon_input" type ="text" name="icon" class="form-control" id="icon" required>
+        </div>
+        
+        <ol class="list-group list-group-horizontal flex-wrap col-md-12">
+          <%- all_icons.each do |icon| -%>
+          <li class='list-group-item btn btn-outline-dark m-3 border'data-name="<%= icon %>">
+        <i class='fas fa-fw fa-<%= icon %> fa-5x ' data-name="<%= icon %>"></i>
+        </li>
+        <%- end -%>
+        </ol>
+       </div>
+
+
+</div>
+
 </form>
+
+<script src = "<%=url("Save.js")%>"></script>
