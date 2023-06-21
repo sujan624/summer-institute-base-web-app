@@ -7,10 +7,16 @@
 <form action = "<%= url("projects/save/#{@dir}") %>" method = "post"
 
     <div class = "row">
+        <div class = "col-md-8 icon_list">
+            <div class = "form-group">
+                <label for = "name">Icon</label>
+                <input id = "icon_input" type = "text" name = "icon" class = "form-control" id = "icon" required>
+        </div>
+        
         <ol class = "list-group list-group-horizontal flex-wrap col-md-12">
-        <%- all_icons.each do |icon| -%>
-        <li class='list-group-item btn btn-outline-dark m-3 border'data_name = "<%= icon %>">
-    <div>
+          <%- all_icons.each do |icon| -%>
+          <li class='list-group-item btn btn-outline-dark m-3 border'data_name = "<%= icon %>">
+       <div>
         <i class='fas fa-fw fa-<%= icon %> fa-5x ' data-name="<%= icon %>"></i>
     </div>
 </li>
@@ -19,7 +25,7 @@
 </div>
 
 
-    <button class = "btn btn-primary" type=""submit >
-        Save
-        </button>
-        </form>
+<button class = "btn btn-primary" type=""submit >
+    Save
+</button>
+</form>

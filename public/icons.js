@@ -1,11 +1,11 @@
 window.onload = () => {
-    icons = document.querySelectorAll('li.list-grouo-item');
+    icons = document.querySelectorAll('li.list-group-item');
     for(let i =0; i < icons.length; i++){
     const icon = icons[i];
     icon.addEventListener('click',chooseIcon);
     }
 
-    function choseIcon(event) {
+    function chooseIcon(event) {
         const icon = event.target;
         const iconName = icon.dataset.name;
         console.log(iconName);
