@@ -7,4 +7,7 @@ gem 'erubi', '~> 1.7'
 gem 'ood_core', '~> 0.19.0'
 gem 'sinatra', '~> 2.2'
 
+gem 'rack'
+gem 'rackup'
+
 gem 'pry', group: :development

@@ -24,7 +24,7 @@ class App < Sinatra::Base
   end
 
   def title
-    'Summer Instititue - Blender'
+    'Summer Instititue - Blender Projects'
   end
   def projects_root
     "#{__dir__}/projects"
